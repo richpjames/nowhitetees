@@ -1,5 +1,7 @@
 import React from "react";
 import styled from "styled-components";
+import { RouteComponentProps } from "@reach/router";
+
 import Title from "./Title";
 import Date from "./Date";
 import Description from "./Description";
@@ -13,9 +15,8 @@ const ShowWrapper = styled.div`
   flex-direction: column;
 `;
 
-interface Props {
-  date: string;
-}
+interface Props extends RouteComponentProps<{ date: string }> {}
+
 const IndividualShow: React.FC<Props> = (props: Props) => {
   const { date } = props;
   const show: Show = Shows.getShowByDate(date);

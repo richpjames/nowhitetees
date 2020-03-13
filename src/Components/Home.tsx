@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import styled from "styled-components";
+import { RouteComponentProps } from "@reach/router";
 
-// import { getAllShows } from '../api';
+import Show from "../Models/Show";
 import ShowReel from "./ShowReel/ShowReel";
+import Shows from "../Managers/Shows";
 
 const HomeWrap = styled.section`
   width: 90%;
@@ -11,19 +13,24 @@ const HomeWrap = styled.section`
   flex-wrap: wrap;
 `;
 
-class Home extends Component {
+interface IProps extends RouteComponentProps {}
+interface IState {
+  shows: Show[];
+}
+class Home extends Component<IProps, IState> {
   state = { shows: [] };
   render() {
     const { shows } = this.state;
     return (
       <HomeWrap className="HomeWrap">
-        {/* <ShowReel shows={shows} className="ShowReel" /> */}
+        <ShowReel shows={shows} className="ShowReel" />
       </HomeWrap>
     );
   }
-  // componentDidMount() {
-  //   getAllShows().then(res => this.setState({ shows: res }));
-  // }
+  componentDidMount() {
+    const shows = Shows.get();
+    this.setState({ shows: shows });
+  }
 }
 
 export default Home;

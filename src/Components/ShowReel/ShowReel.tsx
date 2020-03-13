@@ -1,11 +1,11 @@
 import React from "react";
-import {  navigate } from "@reach/router";
+import { navigate } from "@reach/router";
 import styled from "styled-components";
 
+import Show from "../../Models/Show";
 import Shows from "../../Managers/Shows";
 import ShowCard from "./ShowCard";
 
-interface Props {}
 const ShowReelWrap = styled.div`
   margin-left: auto;
   margin-right: auto;
@@ -13,14 +13,18 @@ const ShowReelWrap = styled.div`
   display: flex;
   flex-wrap: wrap;
 `;
+interface IProps {
+  shows: Show[];
+  className: string;
+}
 
-const ShowReel: React.FC<Props> = (props: Props) => {
+const ShowReel: React.FC<IProps> = (props: IProps) => {
   const showReel = Shows.get().map((show, i) => {
     const { date, id } = show;
 
     return (
       <ShowCard
-        onClick={() => navigate(`shows/${date}`)} 
+        onClick={() => navigate(`shows/${date}`)}
         className="ShowCard"
         id={id}
         key={id}

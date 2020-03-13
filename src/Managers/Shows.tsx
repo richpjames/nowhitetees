@@ -27,9 +27,8 @@ class Shows {
   getShowById = (id: string) =>
     this._shows[this._shows.findIndex(show => show.id === id)];
 
-  getShowByDate = (date: string) => {
-    debugger;
-   return this._shows[this._shows.findIndex(show => show.date === date)];
+  getShowByDate = (date?: string) => {
+    return this._shows[this._shows.findIndex(show => show.date === date)];
   };
 }
 
