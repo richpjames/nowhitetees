@@ -19,11 +19,23 @@ const LogoSVG = styled.img`
   stroke-width: 100;
 `;
 
-const LogoCentered = (props) => {
-  const {height, width} = props;
+interface IProps {
+  height: string;
+  width: string;
+  className: string;
+}
+
+const LogoCentered: React.FC<IProps> = props => {
+  const { height, width } = props;
   return (
-    <LogoWrap className="LogoWrap" >
-      <LogoSVG className="LogoSVG" src={logo} alt="logo" height={height} width={width} />
+    <LogoWrap className="LogoWrap">
+      <LogoSVG
+        className="LogoSVG"
+        src={logo}
+        alt="logo"
+        height={height}
+        width={width}
+      />
     </LogoWrap>
   );
 };

@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { Link } from "@reach/router";
 import LogoCentered from "./LogoCentered";
 
-
 const Nav = styled.nav`
   display: flex;
   width: 90vw;
@@ -29,7 +28,9 @@ const NavItem = styled.li`
   margin-top: 0.5em;
 `;
 
-const NavBar = props => {
+interface IProps {}
+
+const NavBar: React.FC<IProps> = (props: IProps) => {
   return (
     <Nav className="Nav">
       <LogoCentered height="150px" width="150px" className="Logo" />

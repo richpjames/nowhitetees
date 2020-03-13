@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
-import styled from 'styled-components';
+import React, { Component } from "react";
+import styled from "styled-components";
 
 // import { getAllShows } from '../api';
-import ShowReel from './ShowReel/ShowReel';
+import ShowReel from "./ShowReel/ShowReel";
 
 const HomeWrap = styled.section`
   width: 90%;
@@ -17,7 +17,7 @@ class Home extends Component {
     const { shows } = this.state;
     return (
       <HomeWrap className="HomeWrap">
-        <ShowReel shows={shows} className="ShowReel" />
+        {/* <ShowReel shows={shows} className="ShowReel" /> */}
       </HomeWrap>
     );
   }
