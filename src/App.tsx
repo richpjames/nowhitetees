@@ -1,10 +1,12 @@
 import React from "react";
 import styled from "styled-components";
+import { Router } from "@reach/router";
+
+import NotFound from "./NotFound";
 import "./App.css";
 import NavBar from "./Components/NavBar";
 import Home from "./Components/Home";
 import IndividualShow from "./Components/ShowReel/LongCard/IndividualShow";
-import { Router } from "@reach/router";
 
 const AppWrap = styled.div``;
 
@@ -14,7 +16,8 @@ function App() {
       <NavBar />
       <Router>
         <Home path="/" />
-        <IndividualShow path="shows/:date" />
+        <IndividualShow path="/:date" />
+        <NotFound default />
       </Router>
     </AppWrap>
   );
