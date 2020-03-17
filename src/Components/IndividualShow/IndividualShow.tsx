@@ -7,7 +7,7 @@ import Date from "./Date";
 import Description from "./Description";
 import Tracklist from "./Tracklist";
 import Photo from "./Photo";
-import Shows from "../../Managers/Shows";
+import Shows from "../../ShowsData";
 import Show from "../../Models/Show";
 
 const ShowWrapper = styled.div`

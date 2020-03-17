@@ -3,7 +3,7 @@ import { navigate } from "@reach/router";
 import styled from "styled-components";
 
 import Show from "../../Models/Show";
-import Shows from "../../Managers/Shows";
+import Shows from "../../ShowsData";
 import ShowCard from "./ShowCard";
 
 const ShowReelWrap = styled.div`

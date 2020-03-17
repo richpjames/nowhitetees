@@ -4,7 +4,7 @@ import { RouteComponentProps } from "@reach/router";
 
 import Show from "../Models/Show";
 import ShowReel from "./ShowReel/ShowReel";
-import Shows from "../Managers/Shows";
+import Shows from "../ShowsData";
 
 const HomeWrap = styled.section`
   width: 90%;

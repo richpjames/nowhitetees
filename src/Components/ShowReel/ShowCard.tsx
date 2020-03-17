@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { Box } from "grommet";
 
 import Show from "../../Models/Show";
-import Shows from "../../Managers/Shows";
+import Shows from "../../ShowsData";
 import Title from "./Card/Title";
 import ShowReelImage from "./Card/ShowReelImage";
 import DJs from "./Card/DJs";

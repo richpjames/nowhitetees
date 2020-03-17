@@ -1,5 +1,5 @@
-import showsList from "../data/shows";
-import Show from "../Models/Show";
+import showsList from "./data/shows";
+import Show from "./Models/Show";
 
 class Shows {
   _shows: Show[] = [];
@@ -32,6 +32,4 @@ class Shows {
   };
 }
 
-const _shows = new Shows();
-
-export default _shows;
+export default Shows;
