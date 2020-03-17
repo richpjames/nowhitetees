@@ -4,7 +4,7 @@ import styled from "styled-components";
 
 import Show from "../../Models/Show";
 import Shows from "../../ShowsData";
-import ShowCard from "./Card/ShowCard";
+import ShowCard from "./ShortCard/ShowCard";
 
 const ShowReelWrap = styled.div`
   margin-left: auto;

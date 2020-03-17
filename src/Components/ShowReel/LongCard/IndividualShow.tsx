@@ -7,8 +7,8 @@ import Date from "./Date";
 import Description from "./Description";
 import Tracklist from "./Tracklist";
 import Photo from "./Photo";
-import Shows from "../../ShowsData";
-import Show from "../../Models/Show";
+import Shows from "../../../ShowsData";
+import Show from "../../../Models/Show";
 
 const ShowWrapper = styled.div`
   display: flex;
@@ -19,7 +19,10 @@ interface Props extends RouteComponentProps<{ date: string }> {}
 
 const IndividualShow: React.FC<Props> = (props: Props) => {
   const { date } = props;
-  const show: Show = Shows.getShowByDate(date);
+  let show: Show = new Show();
+  if (date) {
+    show = Shows.getShowByDate(date);
+  }
   return (
     <ShowWrapper>
       <Title title={show.title} />
