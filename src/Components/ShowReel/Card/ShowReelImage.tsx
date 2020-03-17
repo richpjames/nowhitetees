@@ -8,9 +8,7 @@ interface Props {
 }
 
 const ImageWrap: AnyStyledComponent = styled(Image)`
-  max-height: 100%;
-  min-width: 0;
-  min-height: 0;
+  height: 175px;
   flex: 7;
   padding: 0;
   margin: auto;
@@ -27,7 +25,8 @@ const ShowReelImage: React.FC<Props> = (props: Props) => {
         src={`${baseImgUrl}${path}`}
         alt="show image"
         maxWidth="100%"
-        maxHeight="29.5vh"
+        height="175px"
+        maxHeight="175px"
       />
     </ImageWrap>
   );
