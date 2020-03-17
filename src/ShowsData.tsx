@@ -2,12 +2,12 @@ import showsList from "./data/shows";
 import Show from "./Models/Show";
 
 class Shows {
-  _shows: Show[] = [];
+  shows: Show[] = [];
 
-  get() {
-    if (!this._shows || this._shows.length < 1) {
+  public get() {
+    if (!this.shows || this.shows.length < 1) {
       const { shows } = showsList;
-      this._shows = shows.map(
+      this.shows = shows.map(
         show =>
           new Show(
             show.title,
@@ -21,15 +21,17 @@ class Shows {
           )
       );
     }
-    return this._shows;
+    return this.shows;
   }
 
   getShowById = (id: string) =>
-    this._shows[this._shows.findIndex(show => show.id === id)];
+    this.shows[this.shows.findIndex(show => show.id === id)];
 
   getShowByDate = (date?: string) => {
-    return this._shows[this._shows.findIndex(show => show.date === date)];
+    return this.shows[this.shows.findIndex(show => show.date === date)];
   };
 }
 
-export default Shows;
+const _shows = new Shows();
+
+export default _shows;
