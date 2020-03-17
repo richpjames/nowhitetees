@@ -2,12 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Box } from "grommet";
 
-import Show from "../../Models/Show";
-import Shows from "../../ShowsData";
-import Title from "./Card/Title";
-import ShowReelImage from "./Card/ShowReelImage";
-import DJs from "./Card/DJs";
-import FeaturedArtists from "./Card/FeaturedArtists";
+import Show from "../../../Models/Show";
+import Shows from "../../../ShowsData";
+import Title from "./Title";
+import ShowReelImage from "./ShowReelImage";
+import DJs from "./DJs";
+import FeaturedArtists from "./FeaturedArtists";
 
 const MetaWrap = styled.div`
   flex: 3;
