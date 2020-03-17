@@ -9,17 +9,17 @@ class Show {
   url: string;
   id: string;
   tracklist: Track[];
-  featuredArtists: Set<string | undefined>
+  featuredArtists: Set<string | undefined>;
 
   constructor(
-    title: string,
-    date: string,
-    photoPath: string,
-    djs: string[],
-    description: string,
-    url: string,
-    id: string,
-    tracklist: Track[]
+    title: string = "",
+    date: string = "",
+    photoPath: string = "",
+    djs: string[] = [],
+    description: string = "",
+    url: string = "",
+    id: string = "",
+    tracklist: Track[] = []
   ) {
     this.title = title;
     this.date = date;
@@ -29,9 +29,8 @@ class Show {
     this.url = url;
     this.id = id;
     this.tracklist = tracklist;
-    this.featuredArtists = new Set()
+    this.featuredArtists = new Set();
   }
-
 
   //get randomly selected track from the show's tracklist
 
