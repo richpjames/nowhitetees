@@ -15,6 +15,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/styled-components": "^4.4.2",
     "@xstate/react": "^0.8.1",
+    "babel-plugin-macros": "^2.8.0",
     "grommet": "^2.10.0",
     "lodash": "^4.17.15",
     "react": "^16.12.0",
