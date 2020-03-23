@@ -29,7 +29,7 @@ const ShowReel: React.FC<IProps> = (props: IProps) => {
         className="ShowCard"
         id={id}
         key={id}
-        width={selectedDate === date ? "600px" : "450px"}
+        selected={selectedDate === date}
       />
     );
   });

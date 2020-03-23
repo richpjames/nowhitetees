@@ -16,29 +16,45 @@ const MetaWrap = styled.div`
   min-width: 30%;
 `;
 
-const ShowCardWrap = styled.div<{ width: string }>`
+const ShowCardWrap = styled.div`
   display: flex;
   border: 1px solid;
   margin-right: 35px;
   margin-bottom: 25px;
   position: relative;
-  width: ${props => props.width || "450px"};
+  width: 450px;
   height: 250px;
+`;
+
+const ShowCardWrapExtended = styled(ShowCardWrap)`
+  width: 935px;
+  height: 525px;
 `;
 
 interface Props {
   id: string;
   className: string;
   onClick: () => void;
-  width: string;
+  selected: boolean;
 }
 
 const ShowCard: React.SFC<Props> = (props: Props) => {
-  const { id, onClick, width } = props;
+  const { id, onClick, selected } = props;
   const show: Show = Shows.getShowById(id);
   const { photoPath, title, djs } = show;
-  return (
-    <ShowCardWrap className="ShowCardWrap" onClick={onClick} width={width}>
+  return selected ? (
+    <ShowCardWrapExtended>
+      <Box alignSelf="center">
+        <ShowReelImage path={photoPath} className="Image" />
+      </Box>
+      <MetaWrap className="MetaWrap">
+        <Title title={title} />
+        <DJs djs={djs}></DJs>
+        <FeaturedArtists id={id} />
+      </MetaWrap>
+    </ShowCardWrapExtended>
+  ) : (
+    <ShowCardWrap className="ShowCardWrap" onClick={onClick}>
       <Box alignSelf="center">
         <ShowReelImage path={photoPath} className="Image" />
       </Box>
