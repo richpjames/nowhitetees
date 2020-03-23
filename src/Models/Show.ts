@@ -52,7 +52,9 @@ class Show {
 
   setNFeaturedArtists = (n: number): void => {
     for (let i = 0; i < n; i++) {
-      this.getFeaturedArtist();
+      if (this.featuredArtists.size < n) {
+        this.getFeaturedArtist();
+      }
     }
     if (this.featuredArtists.size < 3) {
       this.getFeaturedArtist();
