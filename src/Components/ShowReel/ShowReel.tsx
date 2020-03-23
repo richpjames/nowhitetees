@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { navigate } from "@reach/router";
 import styled from "styled-components/macro";
 
@@ -19,18 +19,21 @@ interface IProps {
 }
 
 const ShowReel: React.FC<IProps> = (props: IProps) => {
+  const [selectedDate, setSelectedDate] = useState("");
+
   const showReel = Shows.get().map((show, i) => {
     const { date, id } = show;
-
     return (
       <ShowCard
-        onClick={() => navigate(`shows/${date}`)}
+        onClick={() => setSelectedDate(() => date)}
         className="ShowCard"
         id={id}
         key={id}
+        width={selectedDate === date ? "600px" : "450px"}
       />
     );
   });
+
   return <ShowReelWrap>{showReel}</ShowReelWrap>;
 };
 

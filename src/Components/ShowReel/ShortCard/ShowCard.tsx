@@ -16,28 +16,29 @@ const MetaWrap = styled.div`
   min-width: 30%;
 `;
 
-const ShowCardWrap = styled.div`
+const ShowCardWrap = styled.div<{ width: string }>`
   display: flex;
   border: 1px solid;
   margin-right: 35px;
   margin-bottom: 25px;
   position: relative;
-  width: 450px;
+  width: ${props => props.width || "450px"};
   height: 250px;
 `;
 
 interface Props {
   id: string;
   className: string;
-  onClick: () => Promise<void>;
+  onClick: () => void;
+  width: string;
 }
 
 const ShowCard: React.SFC<Props> = (props: Props) => {
-  const { id, onClick } = props;
+  const { id, onClick, width } = props;
   const show: Show = Shows.getShowById(id);
   const { photoPath, title, djs } = show;
   return (
-    <ShowCardWrap className="ShowCardWrap" onClick={onClick}>
+    <ShowCardWrap className="ShowCardWrap" onClick={onClick} width={width}>
       <Box alignSelf="center">
         <ShowReelImage path={photoPath} className="Image" />
       </Box>
