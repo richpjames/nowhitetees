@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { Image as GrommetImage } from "grommet";
 import { Machine } from "xstate";
 import { useMachine } from "@xstate/react";
@@ -75,9 +75,9 @@ export const Image: React.FC<Props> = ({
   const [current, send] = useMachine(imageMachine);
 
   useEffect(() => {
-    console.log(current.value)
-    send("SUCCESS")
-  }, [send, current.value])
+    console.log(current.value);
+    send("SUCCESS");
+  }, [send, current.value]);
 
   const onError = (src: string) => {
     console.log(`error loading image ${src}`);

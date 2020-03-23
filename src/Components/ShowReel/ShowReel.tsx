@@ -1,6 +1,6 @@
 import React from "react";
 import { navigate } from "@reach/router";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 
 import Show from "../../Models/Show";
 import Shows from "../../ShowsData";

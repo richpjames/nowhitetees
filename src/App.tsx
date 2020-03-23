@@ -1,5 +1,5 @@
 import React from "react";
-import styled from "styled-components";
+import styled from "styled-components/macro";
 import { Router } from "@reach/router";
 
 import NotFound from "./NotFound";

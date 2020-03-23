@@ -1,5 +1,5 @@
 import React from "react";
-import styled, { AnyStyledComponent } from "styled-components";
+import styled, { AnyStyledComponent } from "styled-components/macro";
 import Image from "../../Common/Image";
 
 interface Props {
