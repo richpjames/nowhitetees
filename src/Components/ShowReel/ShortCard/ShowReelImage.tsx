@@ -1,6 +1,6 @@
 import React from "react";
 import styled, { AnyStyledComponent } from "styled-components/macro";
-import Image from "../../Common/Image";
+import Image from "../../Image";
 
 interface Props {
   path: string;

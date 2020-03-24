@@ -3,8 +3,8 @@ import styled from "styled-components/macro";
 import { Image as GrommetImage } from "grommet";
 import { Machine } from "xstate";
 import { useMachine } from "@xstate/react";
-import defaultFallbackPath from "../../assets/DefaultFallbackPath";
-import { ifNullSetValue } from "../../Utils/ifNullSetValue";
+import defaultFallbackPath from "../assets/DefaultFallbackPath";
+import { ifNullSetValue } from "../Utils/ifNullSetValue";
 
 const imageMachine = Machine({
   id: "image",
@@ -75,12 +75,10 @@ export const Image: React.FC<Props> = ({
   const [current, send] = useMachine(imageMachine);
 
   useEffect(() => {
-    console.log(current.value);
     send("SUCCESS");
   }, [send, current.value]);
 
   const onError = (src: string) => {
-    console.log(`error loading image ${src}`);
     send("ERROR");
   };
 
