@@ -4,12 +4,13 @@ import styled from "styled-components/macro";
 import LogoCentered from "../LogoCentered";
 import LinksSection from "./LinksSection";
 import NowPlaying from "./NowPlaying";
+import ProgressIndicator from "./ProgressIndicator";
 
 const Nav = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 17.5%;
+  width: 25%;
   height: 100vh;
   border-bottom: 1px solid black;
   margin-left: auto;
@@ -28,6 +29,7 @@ const SideBar: React.FC<IProps> = (props: IProps) => {
       <LogoCentered height="150px" width="150px" className="Logo" />
       <LinksSection />
       <NowPlaying />
+
       <ProgressIndicator />
     </Nav>
   );
