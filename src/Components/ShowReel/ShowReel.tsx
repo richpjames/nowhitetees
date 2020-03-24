@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { navigate } from "@reach/router";
 import styled from "styled-components/macro";
 
 import Show from "../../Models/Show";
@@ -9,7 +8,6 @@ import ShowCard from "./ShortCard/ShowCard";
 const ShowReelWrap = styled.div`
   margin-left: auto;
   margin-right: auto;
-  width: 90%;
   display: flex;
   flex-wrap: wrap;
 `;
