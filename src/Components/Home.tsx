@@ -7,7 +7,7 @@ import ShowReel from "./ShowReel/ShowReel";
 import Shows from "../ShowsData";
 
 const HomeWrap = styled.section`
-  margin: 8vh 0;
+  margin: 8vh 25px;
   width: 82.5%;
   display: flex;
   flex-wrap: wrap;
