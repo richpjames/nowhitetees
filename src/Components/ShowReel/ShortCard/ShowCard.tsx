@@ -15,20 +15,24 @@ const MetaWrap = styled.div`
   flex-direction: column;
   min-width: 30%;
 `;
+const showCardWidth = 400;
+const showCardHeight = 250;
+const horizontalMargin = 35;
+const verticalMargin = 25;
 
 const ShowCardWrap = styled.div`
   display: flex;
   border: 1px solid;
-  margin-right: 35px;
-  margin-bottom: 25px;
+  margin-right: ${horizontalMargin}px;
+  margin-bottom: ${verticalMargin}px;
   position: relative;
-  width: 450px;
-  height: 250px;
+  width: ${showCardWidth}px;
+  height: ${showCardHeight}px;
 `;
 
 const ShowCardWrapExtended = styled(ShowCardWrap)`
-  width: 935px;
-  height: 525px;
+  width: ${showCardWidth * 2 + horizontalMargin}px;
+  height: ${showCardHeight * 2 + verticalMargin}px;
 `;
 
 interface Props {
