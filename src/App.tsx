@@ -13,7 +13,7 @@ function App() {
   return (
     <AppWrap className="AppWrap">
       <SideBar />
-      <Home path="/" />
+      <Home />
     </AppWrap>
   );
 }
