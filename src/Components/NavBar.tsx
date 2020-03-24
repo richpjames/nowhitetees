@@ -24,7 +24,7 @@ const NavLinks = styled.ul`
   display: flex;
   justify-content: space-between;
   list-style: none;
-  width: 90%;
+  width: 75%;
 `;
 
 const NavItem = styled.li`
@@ -39,13 +39,13 @@ const SideBar: React.FC<IProps> = (props: IProps) => {
       <LogoCentered height="150px" width="150px" className="Logo" />
       <NavLinks>
         <NavItem onClick={() => navigate("mailto:rj@richjames.co.uk")}>
-          <MailOption />
+          <MailOption color="black" />
         </NavItem>
         <NavItem onClick={() => navigate("https://twitter.com/nowhitetee")}>
-          <Twitter />
+          <Twitter color="black" />
         </NavItem>
         <NavItem onClick={() => navigate("https://instagram.com/nowhitetees")}>
-          <Instagram />
+          <Instagram color="black" />
         </NavItem>
       </NavLinks>
     </Nav>
