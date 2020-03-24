@@ -3,6 +3,7 @@ import styled from "styled-components/macro";
 
 const NowPlayingContainer = styled.div`
   margin-top: 7.5%;
+  margin-bottom: 7.5%;
   text-align: center;
 `;
 
