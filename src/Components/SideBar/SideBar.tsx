@@ -3,6 +3,7 @@ import styled from "styled-components/macro";
 
 import LogoCentered from "../LogoCentered";
 import LinksSection from "./LinksSection";
+import NowPlaying from "./NowPlaying";
 
 const Nav = styled.section`
   display: flex;
@@ -26,6 +27,8 @@ const SideBar: React.FC<IProps> = (props: IProps) => {
     <Nav>
       <LogoCentered height="150px" width="150px" className="Logo" />
       <LinksSection />
+      <NowPlaying />
+      <ProgressIndicator />
     </Nav>
   );
 };

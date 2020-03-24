@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-const NowPlayingContainer = styled.div``;
+const NowPlayingContainer = styled.div`
+  margin-top: 7.5%;
+  text-align: center;
+`;
 
 const NowPlaying = () => {
   return (
     <NowPlayingContainer>
-      <p>Now</p>
+      <p>Now playing: November '19</p>
     </NowPlayingContainer>
   );
 };
