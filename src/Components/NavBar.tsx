@@ -1,12 +1,16 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Link } from "@reach/router";
+import { navigate } from "@reach/router";
+
 import LogoCentered from "./LogoCentered";
+import { MailOption, Twitter, Instagram } from "grommet-icons";
 
 const Nav = styled.nav`
   display: flex;
-  width: 90vw;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: center;
+  width: 17.5%;
+  height: 100vh;
   border-bottom: 1px solid black;
   margin-left: auto;
   margin-right: auto;
@@ -17,33 +21,35 @@ const Nav = styled.nav`
 `;
 
 const NavLinks = styled.ul`
+  display: flex;
+  justify-content: space-between;
   list-style: none;
-  text-align: right;
-  padding-top: 2px;
-  margin-right: 1.73vw;
-  height: 100px;
-  margin-top: 50px;
+  width: 90%;
 `;
+
 const NavItem = styled.li`
   margin-top: 0.5em;
 `;
 
 interface IProps {}
 
-const NavBar: React.FC<IProps> = (props: IProps) => {
+const SideBar: React.FC<IProps> = (props: IProps) => {
   return (
-    <Nav className="Nav">
+    <Nav>
       <LogoCentered height="150px" width="150px" className="Logo" />
-      <NavLinks className="NavLinks">
-        <NavItem className="NavItem">
-          <a href="mailto:rj@richjames.co.uk">Contact</a>
+      <NavLinks>
+        <NavItem onClick={() => navigate("mailto:rj@richjames.co.uk")}>
+          <MailOption />
         </NavItem>
-        <NavItem className="NavItem">
-          <Link to="about">Shows</Link>
+        <NavItem onClick={() => navigate("https://twitter.com/nowhitetee")}>
+          <Twitter />
+        </NavItem>
+        <NavItem onClick={() => navigate("https://instagram.com/nowhitetees")}>
+          <Instagram />
         </NavItem>
       </NavLinks>
     </Nav>
   );
 };
 
-export default NavBar;
+export default SideBar;
