@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 
 import LogoCentered from "../LogoCentered";
 import LinksSection from "./LinksSection";
-import ShowSection from "./PlaySection";
+import ShowSection from "./ShowSection/ShowSection";
 
 const Nav = styled.section`
   display: flex;
