@@ -7,6 +7,7 @@ import Home from "./Components/Home";
 
 const AppWrap = styled.div`
   display: flex;
+  height: 100vh;
 `;
 
 function App() {
