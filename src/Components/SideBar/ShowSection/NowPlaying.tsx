@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { nowPlayingHeight } from "./SideBarDimensions";
 
 const NowPlayingContainer = styled.div`
   width: 100%;
-  margin-top: 7.5%;
-  margin-bottom: 7.5%;
+  height: ${nowPlayingHeight}%;
   text-align: center;
 `;
 
