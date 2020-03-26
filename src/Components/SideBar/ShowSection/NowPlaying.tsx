@@ -3,15 +3,19 @@ import styled from "styled-components/macro";
 import { nowPlayingHeight } from "./SideBarDimensions";
 
 const NowPlayingContainer = styled.div`
-  width: 100%;
+  align-items: center;
+  display: flex;
   height: ${nowPlayingHeight}%;
-  text-align: center;
+  justify-content: center;
+  width: 100%;
 `;
+
+const NowPlayingText = styled.h4``;
 
 const NowPlaying = () => {
   return (
     <NowPlayingContainer>
-      <p>Now playing: November '19</p>
+      <NowPlayingText>Now playing: November '19</NowPlayingText>
     </NowPlayingContainer>
   );
 };
