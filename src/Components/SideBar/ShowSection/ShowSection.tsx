@@ -6,18 +6,18 @@ import NowPlaying from "./NowPlaying";
 import ProgressIndicator from "./ProgressIndicator";
 import AudioPlayer from "./AudioPlayer";
 import VolTracklistSection from "./VolTracklistSection";
+import { SideBarContainer } from "./SideBarDefinitions";
 
-const SectionContainer = styled.div`
+const SectionContainer = styled(SideBarContainer)`
   align-content: flex-start;
   display: flex;
   flex-wrap: wrap;
-  height: 100%;
 `;
 
 const ShowSection = () => {
   return (
     <AudioPlayerProvider>
-      <SectionContainer>
+      <SectionContainer height={100} width={100}>
         <NowPlaying />
         <AudioPlayer file="https://nowhitetees.co.uk/recordings/30_03_2019.mp3" />
         <ProgressIndicator />

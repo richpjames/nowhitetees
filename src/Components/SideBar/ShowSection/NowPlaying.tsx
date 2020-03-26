@@ -1,20 +1,18 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { nowPlayingHeight } from "./SideBarDimensions";
+import { nowPlayingHeight, SideBarContainer } from "./SideBarDefinitions";
 
-const NowPlayingContainer = styled.div`
+const NowPlayingContainer = styled(SideBarContainer)`
   align-items: center;
   display: flex;
-  height: ${nowPlayingHeight}%;
   justify-content: center;
-  width: 100%;
 `;
 
 const NowPlayingText = styled.h4``;
 
 const NowPlaying = () => {
   return (
-    <NowPlayingContainer>
+    <NowPlayingContainer height={nowPlayingHeight} width={100}>
       <NowPlayingText>Now playing: November '19</NowPlayingText>
     </NowPlayingContainer>
   );

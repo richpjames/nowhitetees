@@ -1,12 +1,9 @@
 import React from "react";
 import styled from "styled-components/macro";
 import { useAudioPlayer } from "react-use-audio-player";
-import { buttonsHeight } from "./SideBarDimensions";
+import { buttonsHeight, SideBarContainer } from "./SideBarDefinitions";
 
-const Container = styled.div`
-  width: 100%;
-  height: ${buttonsHeight}%;
-`;
+const Container = styled(SideBarContainer)``;
 
 interface IProps {
   file: string;
@@ -23,7 +20,7 @@ const AudioPlayer: React.FC<IProps> = ({ file }) => {
   if (loading) return <div>Loading audio</div>;
 
   return (
-    <Container>
+    <Container height={buttonsHeight} width={100}>
       <button onClick={togglePlayPause}>{playing ? "Pause" : "Play"}</button>
     </Container>
   );
