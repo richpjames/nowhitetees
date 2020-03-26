@@ -1,7 +1,7 @@
 import styled from "styled-components/macro";
 
 export const height = 100;
-export const nowPlayingHeight = 15;
+export const nowPlayingHeight = 10;
 export const buttonsHeight = 10;
 export const secondSectionHeight = height - (nowPlayingHeight + buttonsHeight);
 export const volumeHeight = 15;
