@@ -2,7 +2,8 @@ import React from "react";
 import styled from "styled-components/macro";
 
 const Container = styled.div`
-  border: 1px solid purple;
+  height: 85%;
+  width: 100%;
 `;
 
 const Tracklist = () => {
