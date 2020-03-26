@@ -4,7 +4,7 @@ import { AudioPlayerProvider } from "react-use-audio-player";
 
 import NowPlaying from "./NowPlaying";
 import ProgressIndicator from "./ProgressIndicator";
-import AudioPlayer from "./AudioPlayer";
+import PlaybackButtons from "./PlaybackButtons";
 import VolTracklistSection from "./VolTracklistSection";
 import { SideBarContainer } from "./SideBarDefinitions";
 
@@ -19,7 +19,7 @@ const ShowSection = () => {
     <AudioPlayerProvider>
       <SectionContainer height={100} width={100}>
         <NowPlaying />
-        <AudioPlayer file="https://nowhitetees.co.uk/recordings/30_03_2019.mp3" />
+        <PlaybackButtons file="https://nowhitetees.co.uk/recordings/30_03_2019.mp3" />
         <ProgressIndicator />
         <VolTracklistSection />
       </SectionContainer>
