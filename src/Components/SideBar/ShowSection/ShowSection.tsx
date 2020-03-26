@@ -5,13 +5,13 @@ import { AudioPlayerProvider } from "react-use-audio-player";
 import NowPlaying from "./NowPlaying";
 import ProgressIndicator from "./ProgressIndicator";
 import AudioPlayer from "./AudioPlayer";
-import Volume from "./Volume";
-import Tracklist from "./Tracklist";
+import VolTracklistSection from "./VolTracklistSection";
 
 const SectionContainer = styled.div`
+  align-content: flex-start;
   display: flex;
-  flex-wrap:
-  border: 1px solid red;
+  flex-wrap: wrap;
+  height: 100%;
 `;
 
 const ShowSection = () => {
@@ -21,8 +21,7 @@ const ShowSection = () => {
         <NowPlaying />
         <AudioPlayer file="https://nowhitetees.co.uk/recordings/30_03_2019.mp3" />
         <ProgressIndicator />
-        <Volume />
-        <Tracklist />
+        <VolTracklistSection />
       </SectionContainer>
     </AudioPlayerProvider>
   );
