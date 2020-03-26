@@ -10,11 +10,9 @@ const Nav = styled.section`
   flex-direction: column;
   align-items: center;
   width: 25%;
-  height: 100vh;
-  border-bottom: 1px solid black;
+  height: 100%;
   margin-left: auto;
   margin-right: auto;
-  margin-top: 3vh;
   @media only screen and (max-width: 500px) {
     margin-top: 5vh;
   }
