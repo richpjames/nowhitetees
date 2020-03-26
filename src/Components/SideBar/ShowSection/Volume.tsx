@@ -7,7 +7,12 @@ const Container = styled.div`
 `;
 
 const Volume = () => {
-  return <Container></Container>;
+  return (
+    <Container>
+      <label htmlFor="volume">Volume</label>
+      <input type="range" min={0} max={100} id="volume" />
+    </Container>
+  );
 };
 
 export default Volume;
