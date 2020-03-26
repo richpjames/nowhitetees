@@ -11,6 +11,8 @@ import Volume from "./Volume";
 const Container = styled(SideBarContainer)`
   display: flex;
   flex-wrap: wrap;
+  border: none;
+  width: ${volTracklistWidth}%;
 `;
 
 const VolTracklistSection = () => {
