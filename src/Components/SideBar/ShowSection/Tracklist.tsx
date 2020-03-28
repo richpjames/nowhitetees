@@ -15,6 +15,7 @@ const Container = styled(SideBarContainer)`
 const PageTitle = styled.h4`
   padding-top: 2.5%;
   padding-bottom: 2.5%;
+  padding-left: 2.5%;
 `;
 const TracklistWrap = styled.div`
   overflow-y: scroll;
@@ -23,6 +24,7 @@ const Artist = styled.h5``;
 const TrackTitle = styled.p``;
 const Track = styled.div`
   padding: 5px;
+  padding-left: 10px;
 `;
 interface IProps {
   tracklist: Track[];
