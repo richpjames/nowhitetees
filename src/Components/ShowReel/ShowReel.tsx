@@ -1,6 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext } from "react";
 import styled from "styled-components/macro";
 
+import { AppContext } from "../../AppContext";
 import Show from "../../Models/Show";
 import Shows from "../../ShowsData";
 import ShowCard from "./ShortCard/ShowCard";
@@ -17,17 +18,17 @@ interface IProps {
 }
 
 const ShowReel: React.FC<IProps> = (props: IProps) => {
-  const [selectedDate, setSelectedDate] = useState("");
+  const { showDate, setShowDate } = useContext(AppContext);
 
   const showReel = Shows.get().map((show, i) => {
     const { date, id } = show;
     return (
       <ShowCard
-        onClick={() => setSelectedDate(() => date)}
+        onClick={() => setShowDate(() => date)}
         className="ShowCard"
         id={id}
         key={id}
-        selected={selectedDate === date}
+        selected={showDate === date}
       />
     );
   });
