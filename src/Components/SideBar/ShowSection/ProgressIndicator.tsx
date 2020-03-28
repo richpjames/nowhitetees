@@ -17,19 +17,24 @@ const Container = styled(SideBarContainer)`
   width: calc(${progressWidth}% - 2px);
 `;
 
-const ProgressWrap = styled.div`
-  height: 80%;
-`;
-
 const ProgressBar = styled.div`
-  width: 280%;
-  transform: rotate(90deg);
-  transform-origin: left;
-  margin-left: 50%;
-  padding-left: 50%;
-  margin-top: -20%;
+  height: 100%;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `;
-
+const Second = styled.div<{ currentPercentile: boolean }>`
+  width: 60%;
+  height: 1%;
+  background-color: #000000;
+  ${({ currentPercentile }) =>
+    currentPercentile &&
+    `background-color: #9B9B9B;
+     width: 100%;
+     height: 1.5%;
+     `}
+`;
 const TimeBox = styled.div`
   height: 5%;
   padding-bottom: 5%;
@@ -37,26 +42,36 @@ const TimeBox = styled.div`
 `;
 
 const ProgressIndicator = () => {
-  const { position, duration } = useAudioPosition({
-    highRefreshRate: true
-  });
-  const { seek, loading, ready } = useAudioPlayer();
-  const notLoadingAndReady = !loading && ready;
-  const sBits = [];
-  let count = 0;
-  while (count < duration) {
-    sBits.push(count);
-    count++;
-  }
-  const seconds = sBits.map(second => <div key={second} />);
-  let loadedDuration: number = duration;
+  const { position, duration } = useAudioPosition();
+  const { seek } = useAudioPlayer();
+  const [percent, setPercent] = React.useState(0);
 
-  React.useEffect(() => {}, [duration]);
+  React.useEffect(() => {
+    setPercent(Math.round((position / duration) * 100 || 0));
+  }, [position, duration]);
+
+  const seekPosition = (percent: number) => {
+    seek(duration * (percent / 100));
+  };
+
+  const sBits = [];
+  for (var i = 0; i < 101; i++) {
+    sBits.push(i);
+  }
+  const seconds = sBits.map(percentOfDiv => {
+    return (
+      <Second
+        key={percentOfDiv}
+        currentPercentile={percentOfDiv === percent}
+        onClick={() => seekPosition(percentOfDiv)}
+      />
+    );
+  });
 
   return (
     <Container height={secondSectionHeight} width={progressWidth}>
       <TimeBox>00:00</TimeBox>
-      <ProgressWrap></ProgressWrap>
+      <ProgressBar>{seconds}</ProgressBar>
       <TimeBox>
         {duration > 0 ? `${Math.floor(duration / 60)}:00` : `00:00`}
       </TimeBox>
