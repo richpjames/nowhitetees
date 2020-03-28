@@ -18,12 +18,18 @@ const Nav = styled.section`
   }
 `;
 
+const LogoWrap = styled.div`
+  height: 25%;
+`;
+
 interface IProps {}
 
 const SideBar: React.FC<IProps> = (props: IProps) => {
   return (
     <Nav>
-      <LogoCentered height="150px" width="150px" className="Logo" />
+      <LogoWrap>
+        <LogoCentered height="150px" width="150px" className="Logo" />
+      </LogoWrap>
       <LinksSection />
       <ShowSection />
     </Nav>
