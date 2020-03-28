@@ -9,6 +9,7 @@ const NavLinks = styled.ul`
   justify-content: space-between;
   list-style: none;
   width: 75%;
+  height: 7.5%;
 `;
 
 const NavItem = styled.li`
