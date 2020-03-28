@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 
 const Container = styled.div`
   border: 1px solid black;
-  height: calc(85% - 2px);
+  height: calc(100% - 2px);
   width: calc(100% - 2px);
 `;
 
