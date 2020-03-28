@@ -24,8 +24,9 @@ const ShowReel: React.FC<IProps> = (props: IProps) => {
     const { date, id } = show;
     return (
       <ShowCard
-        onClick={() => setShowDate(() => date)}
+        onClick={setShowDate}
         className="ShowCard"
+        date={date}
         id={id}
         key={id}
         selected={showDate === date}
