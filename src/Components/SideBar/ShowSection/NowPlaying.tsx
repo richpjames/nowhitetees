@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
+
 import { nowPlayingHeight, SideBarContainer } from "./SideBarDefinitions";
 
 const NowPlayingContainer = styled(SideBarContainer)`
@@ -10,10 +11,14 @@ const NowPlayingContainer = styled(SideBarContainer)`
 
 const NowPlayingText = styled.h4``;
 
-const NowPlaying = () => {
+interface IProps {
+  showTitle: string;
+}
+const NowPlaying = (props: IProps) => {
+  const { showTitle } = props;
   return (
     <NowPlayingContainer height={nowPlayingHeight} width={100}>
-      <NowPlayingText>Now playing: November '19</NowPlayingText>
+      <NowPlayingText>{showTitle}</NowPlayingText>
     </NowPlayingContainer>
   );
 };
