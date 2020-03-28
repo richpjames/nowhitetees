@@ -21,7 +21,7 @@ const ProgressWrap = styled.div`
   height: 80%;
 `;
 
-const ProgressBar = styled.input`
+const ProgressBar = styled.div`
   width: 280%;
   transform: rotate(90deg);
   transform-origin: left;
@@ -29,6 +29,7 @@ const ProgressBar = styled.input`
   padding-left: 50%;
   margin-top: -20%;
 `;
+
 const TimeBox = styled.div`
   height: 5%;
   padding-bottom: 5%;
@@ -36,31 +37,26 @@ const TimeBox = styled.div`
 `;
 
 const ProgressIndicator = () => {
-  const { position, duration } = useAudioPosition({ highRefreshRate: true });
-  const { seek } = useAudioPlayer();
-  const [percent, setPercent] = React.useState(0);
+  const { position, duration } = useAudioPosition({
+    highRefreshRate: true
+  });
+  const { seek, loading, ready } = useAudioPlayer();
+  const notLoadingAndReady = !loading && ready;
+  const sBits = [];
+  let count = 0;
+  while (count < duration) {
+    sBits.push(count);
+    count++;
+  }
+  const seconds = sBits.map(second => <div key={second} />);
+  let loadedDuration: number = duration;
 
-  React.useEffect(() => {
-    setPercent((position / duration) * 100 || 0);
-  }, [position, duration]);
+  React.useEffect(() => {}, [duration]);
 
   return (
     <Container height={secondSectionHeight} width={progressWidth}>
       <TimeBox>00:00</TimeBox>
-      <ProgressWrap>
-        <ProgressBar
-          type="range"
-          min={0}
-          max={100}
-          value={percent}
-          onChange={({ target }) => {
-            const decimalOfPercent = +target.value / 100;
-            const durationToSeek = (duration * decimalOfPercent) / 600;
-            console.log(durationToSeek, duration);
-            seek(durationToSeek);
-          }}
-        />
-      </ProgressWrap>
+      <ProgressWrap></ProgressWrap>
       <TimeBox>
         {duration > 0 ? `${Math.floor(duration / 60)}:00` : `00:00`}
       </TimeBox>
