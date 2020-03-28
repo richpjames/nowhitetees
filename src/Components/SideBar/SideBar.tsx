@@ -19,7 +19,7 @@ const Nav = styled.section`
 `;
 
 const LogoWrap = styled.div`
-  height: 25%;
+  height: 22.5%;
 `;
 
 interface IProps {}
