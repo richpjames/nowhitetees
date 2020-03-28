@@ -60,6 +60,9 @@ class Show {
       this.getFeaturedArtist();
     }
   };
+  getTracksOnly() {
+    return this.tracklist.filter(track => track.track && track);
+  }
 }
 
 export default Show;
