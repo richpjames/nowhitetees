@@ -25,10 +25,10 @@ interface IProps {
 }
 
 declare type BackOrForth = "back" | "forth";
-
+const urlPrefix = `https://www.nowhitetees.co.uk/recordings/`;
 const PlaybackButtons: React.FC<IProps> = ({ file }) => {
   const { playing, seek, stop, togglePlayPause } = useAudioPlayer({
-    src: file,
+    src: `${urlPrefix}${file}`,
     format: "mp3"
   });
   const { position } = useAudioPosition();
@@ -41,8 +41,6 @@ const PlaybackButtons: React.FC<IProps> = ({ file }) => {
     }
   };
 
-  // if (!ready && !loading) return <div>No audio to play</div>;
-  // if (loading) return <div>Loading audio</div>;
   const playPauseButton = (isPlaying: boolean) =>
     isPlaying ? (
       <PauseFill color={buttonColour} />
