@@ -2,11 +2,14 @@ import React from "react";
 import styled from "styled-components/macro";
 import { AudioPlayerProvider } from "react-use-audio-player";
 
-import NowPlaying from "./NowPlaying";
-import ProgressIndicator from "./ProgressIndicator";
-import PlaybackButtons from "./PlaybackButtons";
-import VolTracklistSection from "./VolTracklistSection";
 import { SideBarContainer } from "./SideBarDefinitions";
+import { AppContext } from "../../../AppContext";
+import NowPlaying from "./NowPlaying";
+import PlaybackButtons from "./PlaybackButtons";
+import ProgressIndicator from "./ProgressIndicator";
+import Show from "../../../Models/Show";
+import Shows from "../../../ShowsData";
+import Tracklist from "./Tracklist";
 
 const SectionContainer = styled(SideBarContainer)`
   align-content: flex-start;
@@ -15,13 +18,19 @@ const SectionContainer = styled(SideBarContainer)`
 `;
 
 const ShowSection = () => {
+  const { showDate } = React.useContext(AppContext);
+  const show: Show = Shows.getShowByDate(showDate);
+  const showTitle = show ? show.title : "";
+  const showUrl = show ? show.url : "";
+  const tracklist = show ? show.getTracksOnly() : [];
+
   return (
     <AudioPlayerProvider>
-      <SectionContainer height={100} width={100}>
-        <NowPlaying />
-        <PlaybackButtons file="https://nowhitetees.co.uk/recordings/30_03_2019.mp3" />
+      <SectionContainer height={70} width={100}>
+        <NowPlaying showTitle={showTitle} />
+        <PlaybackButtons file={showUrl} />
         <ProgressIndicator />
-        <VolTracklistSection />
+        <Tracklist tracklist={tracklist} />
       </SectionContainer>
     </AudioPlayerProvider>
   );
