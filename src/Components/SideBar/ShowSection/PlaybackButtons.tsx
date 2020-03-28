@@ -27,17 +27,9 @@ interface IProps {
 declare type BackOrForth = "back" | "forth";
 
 const PlaybackButtons: React.FC<IProps> = ({ file }) => {
-  const {
-    loading,
-    playing,
-    ready,
-    seek,
-    stop,
-    togglePlayPause
-  } = useAudioPlayer({
+  const { playing, seek, stop, togglePlayPause } = useAudioPlayer({
     src: file,
-    format: "mp3",
-    autoplay: false
+    format: "mp3"
   });
   const { position } = useAudioPosition();
 
