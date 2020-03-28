@@ -4,6 +4,7 @@ import styled from "styled-components/macro";
 import "./App.css";
 import SideBar from "./Components/SideBar/SideBar";
 import Home from "./Components/Home";
+import { AppContext } from "./AppContext";
 
 const AppWrap = styled.div`
   display: flex;
@@ -11,10 +12,13 @@ const AppWrap = styled.div`
 `;
 
 function App() {
+  const [showDate, setShowDate] = React.useState("");
   return (
     <AppWrap className="AppWrap">
-      <SideBar />
-      <Home />
+      <AppContext.Provider value={{ showDate, setShowDate }}>
+        <SideBar />
+        <Home />
+      </AppContext.Provider>
     </AppWrap>
   );
 }
