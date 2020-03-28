@@ -20,45 +20,49 @@ const showCardHeight = 250;
 const horizontalMargin = 35;
 const verticalMargin = 25;
 
-const ShowCardWrap = styled.div`
+const ShowCardWrap = styled.div<{ width: number; height: number }>`
   display: flex;
   border: 1px solid;
   margin-right: ${horizontalMargin}px;
   margin-bottom: ${verticalMargin}px;
   position: relative;
-  width: ${showCardWidth}px;
-  height: ${showCardHeight}px;
+  width: ${({ width }) => width}px;
+  height: ${({ height }) => height}px;
 `;
 
-const ShowCardWrapExtended = styled(ShowCardWrap)`
-  width: ${showCardWidth * 2 + horizontalMargin}px;
-  height: ${showCardHeight * 2 + verticalMargin}px;
-`;
-
-interface Props {
+interface IProps {
   id: string;
   className: string;
-  onClick: () => void;
+  onClick: (date: string) => void;
   selected: boolean;
+  date: string;
 }
 
-const ShowCard: React.SFC<Props> = (props: Props) => {
-  const { id, onClick, selected } = props;
+const ShowCard: React.SFC<IProps> = (props: IProps) => {
+  const { id, onClick, selected, date } = props;
   const show: Show = Shows.getShowById(id);
   const { photoPath, title, djs } = show;
   return selected ? (
-    <ShowCardWrapExtended>
+    <ShowCardWrap
+      width={showCardWidth * 2 + horizontalMargin}
+      height={showCardHeight * 2 + verticalMargin}
+      onClick={() => onClick("")}
+    >
       <Box alignSelf="center">
         <ShowReelImage path={photoPath} className="Image" />
       </Box>
       <MetaWrap className="MetaWrap">
         <Title title={title} />
-        <DJs djs={djs}></DJs>
         <FeaturedArtists id={id} />
       </MetaWrap>
-    </ShowCardWrapExtended>
+    </ShowCardWrap>
   ) : (
-    <ShowCardWrap className="ShowCardWrap" onClick={onClick}>
+    <ShowCardWrap
+      className="ShowCardWrap"
+      onClick={() => onClick(date)}
+      height={showCardHeight}
+      width={showCardWidth}
+    >
       <Box alignSelf="center">
         <ShowReelImage path={photoPath} className="Image" />
       </Box>
