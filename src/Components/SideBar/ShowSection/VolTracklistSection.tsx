@@ -18,7 +18,6 @@ const Container = styled(SideBarContainer)`
 const VolTracklistSection = () => {
   return (
     <Container height={secondSectionHeight} width={volTracklistWidth}>
-      <Volume />
       <Tracklist />
     </Container>
   );
