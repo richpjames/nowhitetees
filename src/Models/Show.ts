@@ -39,7 +39,7 @@ class Show {
 
     //if the track property(track title) is not null (EG not a DJ) then add it
     //to the featuredArtists set
-    if (randomTrack.track !== null) {
+    if (randomTrack.track !== null && randomTrack.artist.length < 17) {
       this.featuredArtists.add(randomTrack.artist);
       return;
 
