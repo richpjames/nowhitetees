@@ -1,18 +1,15 @@
 import React from "react";
-import styled, { AnyStyledComponent } from "styled-components/macro";
+import styled from "styled-components/macro";
 import Image from "../../Image";
 
 interface Props {
   path: string;
-  className: string;
+  className?: string;
 }
 
-const ImageWrap: AnyStyledComponent = styled(Image)`
-  height: 175px;
-  flex: 7;
+const ImageWrap = styled.div`
+  height: 100%;
   padding: 0;
-  margin: auto;
-  height: auto;
 `;
 
 const ShowReelImage: React.FC<Props> = (props: Props) => {
@@ -21,13 +18,7 @@ const ShowReelImage: React.FC<Props> = (props: Props) => {
   const { path } = props;
   return (
     <ImageWrap>
-      <Image
-        src={`${baseImgUrl}${path}`}
-        alt="show image"
-        maxWidth="100%"
-        height="175px"
-        maxHeight="175px"
-      />
+      <Image src={`${baseImgUrl}${path}`} alt="show image" maxWidth="100%" />
     </ImageWrap>
   );
 };
