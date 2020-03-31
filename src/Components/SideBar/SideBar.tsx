@@ -12,8 +12,6 @@ const Nav = styled.section`
   align-items: center;
   width: 25%;
   height: 100%;
-  margin-left: auto;
-  margin-right: auto;
   @media only screen and (max-width: 500px) {
     margin-top: 5vh;
   }
