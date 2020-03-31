@@ -20,8 +20,14 @@ interface IProps {
 const ShowReel: React.FC<IProps> = (props: IProps) => {
   const { showDate, setShowDate } = useContext(AppContext);
 
+  let evenSelected = false;
+
   const showReel = Shows.get().map((show, i) => {
     const { date, id } = show;
+    const selected = showDate === date;
+    if (selected) {
+      evenSelected = i % 2 === 0 ? true : false;
+    }
     return (
       <ShowCard
         onClick={setShowDate}
@@ -29,7 +35,8 @@ const ShowReel: React.FC<IProps> = (props: IProps) => {
         date={date}
         id={id}
         key={id}
-        selected={showDate === date}
+        selected={selected}
+        rightMargin={evenSelected ? i % 2 === 1 : i % 2 === 0}
       />
     );
   });
