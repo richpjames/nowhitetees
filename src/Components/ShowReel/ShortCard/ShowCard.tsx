@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Box } from "grommet";
 
 import Show from "../../../Models/Show";
 import Shows from "../../../ShowsData";
@@ -9,25 +8,41 @@ import ShowReelImage from "./ShowReelImage";
 import DJs from "./DJs";
 import FeaturedArtists from "./FeaturedArtists";
 
+const horizontalMargin = 35;
+const verticalMargin = 25;
+const showCardWidth = 100 / 2;
+
+const ShowCardWrap = styled.div<{
+  width: number;
+  height?: number;
+  selected: boolean;
+  rightMargin: boolean;
+}>`
+  display: flex;
+  border: 1px solid;
+  margin-bottom: ${verticalMargin}px;
+  position: relative;
+  width: calc(${({ width }) => width}% - ${horizontalMargin}px);
+  height: ${({ height }) => (height ? `${height}vh` : "inherit")};
+  transition: width 0.9s ease-out;
+
+  ${({ rightMargin }) =>
+    rightMargin &&
+    `  margin-right: ${horizontalMargin}px;
+  `}
+  ${({ selected, width }) =>
+    selected &&
+    `
+      width: calc((${width}% * 2) - (${horizontalMargin}px ));
+      margin-right: 0;
+    `}
+`;
+
 const MetaWrap = styled.div`
   flex: 3;
   display: flex;
   flex-direction: column;
   min-width: 30%;
-`;
-const showCardWidth = 400;
-const showCardHeight = 250;
-const horizontalMargin = 35;
-const verticalMargin = 25;
-
-const ShowCardWrap = styled.div<{ width: number; height: number }>`
-  display: flex;
-  border: 1px solid;
-  margin-right: ${horizontalMargin}px;
-  margin-bottom: ${verticalMargin}px;
-  position: relative;
-  width: ${({ width }) => width}px;
-  height: ${({ height }) => height}px;
 `;
 
 interface IProps {
@@ -36,39 +51,36 @@ interface IProps {
   onClick: (date: string) => void;
   selected: boolean;
   date: string;
+  rightMargin: boolean;
 }
 
 const ShowCard: React.SFC<IProps> = (props: IProps) => {
-  const { id, onClick, selected, date } = props;
+  const { id, onClick, selected, date, rightMargin } = props;
   const show: Show = Shows.getShowById(id);
   const { photoPath, title, djs } = show;
   return selected ? (
     <ShowCardWrap
-      width={showCardWidth * 2 + horizontalMargin}
-      height={showCardHeight * 2 + verticalMargin}
+      width={showCardWidth}
       onClick={() => onClick("")}
+      selected={selected}
+      rightMargin={false}
     >
-      <Box alignSelf="center">
-        <ShowReelImage path={photoPath} className="Image" />
-      </Box>
-      <MetaWrap className="MetaWrap">
-        <Title title={title} />
+      <ShowReelImage path={photoPath} />
+      <MetaWrap>
+        <Title title={title} /> <DJs djs={djs}></DJs>
         <FeaturedArtists id={id} />
       </MetaWrap>
     </ShowCardWrap>
   ) : (
     <ShowCardWrap
-      className="ShowCardWrap"
       onClick={() => onClick(date)}
-      height={showCardHeight}
       width={showCardWidth}
+      selected={false}
+      rightMargin={rightMargin}
     >
-      <Box alignSelf="center">
-        <ShowReelImage path={photoPath} className="Image" />
-      </Box>
-      <MetaWrap className="MetaWrap">
+      <ShowReelImage path={photoPath} />
+      <MetaWrap>
         <Title title={title} />
-        <DJs djs={djs}></DJs>
         <FeaturedArtists id={id} />
       </MetaWrap>
     </ShowCardWrap>
