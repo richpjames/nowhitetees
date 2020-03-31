@@ -32,8 +32,8 @@ interface IProps {
 
 const Tracklist = (props: IProps) => {
   const { tracklist } = props;
-  const tracklistElems = tracklist.map(track => (
-    <Track>
+  const tracklistElems = tracklist.map((track, i) => (
+    <Track key={i}>
       <Artist>{track.artist}</Artist>
       <TrackTitle>{track.track}</TrackTitle>
     </Track>
