@@ -48,9 +48,9 @@ const MetaWrap = styled.div`
 interface IProps {
   id: string;
   className: string;
-  onClick: (date: string) => void;
+  onClick: (date: Date) => void;
   selected: boolean;
-  date: string;
+  date: Date;
   rightMargin: boolean;
 }
 
@@ -61,7 +61,7 @@ const ShowCard: React.SFC<IProps> = (props: IProps) => {
   return selected ? (
     <ShowCardWrap
       width={showCardWidth}
-      onClick={() => onClick("")}
+      onClick={() => onClick(new Date())}
       selected={selected}
       rightMargin={false}
     >

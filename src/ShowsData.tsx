@@ -1,3 +1,5 @@
+import { isSameDay } from "date-fns";
+
 import showsList from "./data/shows";
 import Show from "./Models/Show";
 
@@ -29,11 +31,13 @@ class Shows {
   getShowById = (id: string) =>
     this._shows[this._shows.findIndex(show => show.id === id)];
 
-  getShowByDate = (date: string) => {
+  getShowByDate = (date: Date) => {
     if (this._needsRefresh) {
       this.get();
     }
-    return this._shows[this._shows.findIndex(show => show.date === date)];
+    return this._shows[
+      this._shows.findIndex(show => isSameDay(show.date, date))
+    ];
   };
 }
 

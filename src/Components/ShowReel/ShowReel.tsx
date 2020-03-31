@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import styled from "styled-components/macro";
+import { isSameDay } from "date-fns";
 
 import { AppContext } from "../../AppContext";
 import Show from "../../Models/Show";
@@ -24,7 +25,8 @@ const ShowReel: React.FC<IProps> = (props: IProps) => {
 
   const showReel = Shows.get().map((show, i) => {
     const { date, id } = show;
-    const selected = showDate === date;
+    console.log(date);
+    const selected = isSameDay(showDate, date);
     if (selected) {
       evenSelected = i % 2 === 0 ? true : false;
     }

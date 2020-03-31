@@ -1,8 +1,9 @@
 import randomSample from "../Utils/randomSample";
+import { parse } from "date-fns";
 
 class Show {
   title: string;
-  date: string;
+  date: Date;
   photoPath: string;
   djs: string[];
   description: string;
@@ -22,7 +23,7 @@ class Show {
     tracklist: Track[] = []
   ) {
     this.title = title;
-    this.date = date;
+    this.date = parse(date, "dd_MM_yyyy", new Date());
     this.photoPath = photoPath;
     this.djs = djs;
     this.description = description;
