@@ -1,11 +1,17 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Heading, Text, Box } from "grommet";
+import { Text, Box } from "grommet";
 import Shows from "../../../ShowsData";
 
 const FeaturingWrap = styled(Box)`
   margin-top: 1.5vh;
+  text-align: center;
 `;
+const Heading = styled.h4``;
+const Artists = styled.ul`
+  padding-top: 5%;
+`;
+const Artist = styled.li``;
 
 interface Props {
   id: string;
@@ -21,14 +27,14 @@ const FeaturedArtists: React.FC<Props> = (props: Props) => {
 
   return (
     <FeaturingWrap>
-      <Heading level={4} alignSelf="center">
-        Featuring:
-      </Heading>
-      {featuredArtists.map((artist, i) => (
-        <Text key={i} size="small" alignSelf="center" margin={{ top: "0.1vh" }}>
-          {artist}
-        </Text>
-      ))}
+      <Heading>Featuring:</Heading>
+      <Artists>
+        {featuredArtists.map((artist, i) => (
+          <Artist key={i}>
+            <p>{artist}</p>
+          </Artist>
+        ))}
+      </Artists>
     </FeaturingWrap>
   );
 };
