@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 
 import "./App.css";
 import SideBar from "./Components/SideBar/SideBar";
-import Home from "./Components/Home";
+import ShowReelContainer from "./Components/ShowReelContainer";
 import { AppContext } from "./AppContext";
 
 const AppWrap = styled.div`
@@ -17,7 +17,7 @@ function App() {
     <AppWrap className="AppWrap">
       <AppContext.Provider value={{ showDate, setShowDate }}>
         <SideBar />
-        <Home />
+        <ShowReelContainer />
       </AppContext.Provider>
     </AppWrap>
   );
