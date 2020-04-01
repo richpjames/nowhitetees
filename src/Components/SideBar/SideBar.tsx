@@ -31,7 +31,7 @@ const Blanker = styled.div`
 interface IProps {}
 
 const SideBar: React.FC<IProps> = (props: IProps) => {
-  const { showDate } = React.useContext(AppContext);
+  const { sidebarShowDate: showDate } = React.useContext(AppContext);
   return (
     <Nav>
       <LogoWrap>

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React from "react";
 import styled from "styled-components/macro";
 import { isSameDay } from "date-fns";
 
@@ -19,26 +19,28 @@ interface IProps {
 }
 
 const ShowReel: React.FC<IProps> = (props: IProps) => {
-  const { showDate, setShowDate } = useContext(AppContext);
+  const [enlargedShow, setEnlargedShow] = React.useState<Date>(new Date());
 
   let evenSelected = false;
+  const isInLeftColumn = (i: number) =>
+    evenSelected ? i % 2 === 1 : i % 2 === 0;
 
   const showReel = Shows.get().map((show, i) => {
     const { date, id } = show;
-    console.log(date);
-    const selected = isSameDay(showDate, date);
+    const selected = isSameDay(enlargedShow, date);
+
     if (selected) {
       evenSelected = i % 2 === 0 ? true : false;
     }
     return (
       <ShowCard
-        onClick={setShowDate}
+        onClick={setEnlargedShow}
         className="ShowCard"
         date={date}
         id={id}
         key={id}
         selected={selected}
-        rightMargin={evenSelected ? i % 2 === 1 : i % 2 === 0}
+        rightMargin={isInLeftColumn(i)}
       />
     );
   });

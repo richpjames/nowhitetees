@@ -18,7 +18,7 @@ const SectionContainer = styled(SideBarContainer)`
 `;
 
 const ShowSection = () => {
-  const { showDate } = React.useContext(AppContext);
+  const { sidebarShowDate: showDate } = React.useContext(AppContext);
   const show: Show = Shows.getShowByDate(showDate);
   const showTitle = show ? show.title : "";
   const showUrl = show ? show.url : "";

@@ -12,10 +12,15 @@ const AppWrap = styled.div`
 `;
 
 function App() {
-  const [showDate, setShowDate] = React.useState(new Date());
+  const [sidebarShowDate, setSidebarShowDate] = React.useState(new Date());
   return (
     <AppWrap className="AppWrap">
-      <AppContext.Provider value={{ showDate, setShowDate }}>
+      <AppContext.Provider
+        value={{
+          sidebarShowDate: sidebarShowDate,
+          setSidebarShowDate: setSidebarShowDate
+        }}
+      >
         <SideBar />
         <ShowReelContainer />
       </AppContext.Provider>

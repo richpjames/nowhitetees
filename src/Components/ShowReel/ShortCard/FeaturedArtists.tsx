@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Text, Box } from "grommet";
+import { Box } from "grommet";
 import Shows from "../../../ShowsData";
 
 const FeaturingWrap = styled(Box)`

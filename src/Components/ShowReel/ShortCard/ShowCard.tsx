@@ -1,12 +1,15 @@
 import React from "react";
 import styled from "styled-components/macro";
+import { PlayFill, Download, Expand } from "grommet-icons";
 
-import Show from "../../../Models/Show";
-import Shows from "../../../ShowsData";
-import Title from "./Title";
-import ShowReelImage from "./ShowReelImage";
+import { Button, buttonColour } from "../../../GlobalDefinitions";
+import { AppContext } from "../../../AppContext";
 import DJs from "./DJs";
 import FeaturedArtists from "./FeaturedArtists";
+import Show from "../../../Models/Show";
+import ShowReelImage from "./ShowReelImage";
+import Shows from "../../../ShowsData";
+import Title from "./Title";
 
 const horizontalMargin = 35;
 const verticalMargin = 25;
@@ -56,19 +59,25 @@ interface IProps {
 
 const ShowCard: React.SFC<IProps> = (props: IProps) => {
   const { id, onClick, selected, date, rightMargin } = props;
+  const { setSidebarShowDate } = React.useContext(AppContext);
+
   const show: Show = Shows.getShowById(id);
   const { photoPath, title, djs } = show;
   return selected ? (
-    <ShowCardWrap
-      width={showCardWidth}
-      onClick={() => onClick(new Date())}
-      selected={selected}
-      rightMargin={false}
-    >
+    <ShowCardWrap width={showCardWidth} selected={selected} rightMargin={false}>
       <ShowReelImage path={photoPath} />
       <MetaWrap>
         <Title title={title} /> <DJs djs={djs}></DJs>
-        <FeaturedArtists id={id} />
+        <FeaturedArtists id={id} />{" "}
+        <Button>
+          <PlayFill
+            color={buttonColour}
+            onClick={() => setSidebarShowDate(date)}
+          />
+        </Button>
+        <Button>
+          <Download color={buttonColour} />
+        </Button>
       </MetaWrap>
     </ShowCardWrap>
   ) : (
