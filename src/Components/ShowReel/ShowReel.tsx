@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components/macro";
 import { isSameDay } from "date-fns";
 
-import { AppContext } from "../../AppContext";
 import Show from "../../Models/Show";
 import Shows from "../../ShowsData";
 import ShowCard from "./ShortCard/ShowCard";
@@ -19,7 +18,7 @@ interface IProps {
 }
 
 const ShowReel: React.FC<IProps> = (props: IProps) => {
-  const [enlargedShow, setEnlargedShow] = React.useState<Date>(new Date());
+  const [expandedShow, setExpandedShow] = React.useState<Date>(new Date());
 
   let evenSelected = false;
   const isInLeftColumn = (i: number) =>
@@ -27,14 +26,14 @@ const ShowReel: React.FC<IProps> = (props: IProps) => {
 
   const showReel = Shows.get().map((show, i) => {
     const { date, id } = show;
-    const selected = isSameDay(enlargedShow, date);
+    const selected = isSameDay(expandedShow, date);
 
     if (selected) {
       evenSelected = i % 2 === 0 ? true : false;
     }
     return (
       <ShowCard
-        onClick={setEnlargedShow}
+        onClick={setExpandedShow}
         className="ShowCard"
         date={date}
         id={id}
