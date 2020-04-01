@@ -1,6 +1,6 @@
 import React from "react";
-import styled from "styled-components/macro";
-import { PlayFill, Download, Expand } from "grommet-icons";
+import styled, { keyframes } from "styled-components/macro";
+import { PlayFill, Download, Contract } from "grommet-icons";
 
 import { Button, buttonColour } from "../../../GlobalDefinitions";
 import { AppContext } from "../../../AppContext";
@@ -27,11 +27,11 @@ const ShowCardWrap = styled.div<{
   position: relative;
   width: calc(${({ width }) => width}% - ${horizontalMargin}px);
   height: ${({ height }) => (height ? `${height}vh` : "inherit")};
-  transition: width 0.9s ease-out;
-
+  transition: width 0.5s ease-out;
+  cursor: pointer;
   ${({ rightMargin }) =>
     rightMargin &&
-    `  margin-right: ${horizontalMargin}px;
+    `margin-right: ${horizontalMargin}px;
   `}
   ${({ selected, width }) =>
     selected &&
@@ -46,6 +46,27 @@ const MetaWrap = styled.div`
   display: flex;
   flex-direction: column;
   min-width: 30%;
+`;
+const ButtonsWrap = styled.div`
+  display: flex;
+  width: 30%;
+  justify-content: space-between;
+  align-self: center;
+  margin-top: auto;
+  margin-bottom: 10%;
+`;
+const fadeIn = keyframes`
+  0% {
+  opacity: 0;
+  visibility: hidden;  }
+  100% {
+    opacity: 1;
+    visibility: visible;  }
+`;
+const CollapseButton = styled(Button)`
+  margin-left: auto;
+  margin-bottom: 2.5%;
+  animation: ${fadeIn} 1s ease-in-out forwards;
 `;
 
 interface IProps {
@@ -63,21 +84,24 @@ const ShowCard: React.SFC<IProps> = (props: IProps) => {
 
   const show: Show = Shows.getShowById(id);
   const { photoPath, title, djs } = show;
+
   return selected ? (
     <ShowCardWrap width={showCardWidth} selected={selected} rightMargin={false}>
-      <ShowReelImage path={photoPath} />
+      <ShowReelImage path={photoPath} onClick={() => onClick(new Date())} />
       <MetaWrap>
         <Title title={title} /> <DJs djs={djs}></DJs>
-        <FeaturedArtists id={id} />{" "}
-        <Button>
-          <PlayFill
-            color={buttonColour}
-            onClick={() => setSidebarShowDate(date)}
-          />
-        </Button>
-        <Button>
-          <Download color={buttonColour} />
-        </Button>
+        <FeaturedArtists id={id} />
+        <ButtonsWrap>
+          <Button onClick={() => setSidebarShowDate(date)}>
+            <PlayFill color={buttonColour} />
+          </Button>
+          <Button>
+            <Download color={buttonColour} />
+          </Button>
+        </ButtonsWrap>
+        <CollapseButton onClick={() => onClick(new Date())}>
+          <Contract color={buttonColour} />
+        </CollapseButton>
       </MetaWrap>
     </ShowCardWrap>
   ) : (
