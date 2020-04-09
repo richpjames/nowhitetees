@@ -8,7 +8,7 @@ import Shows from "../ShowsData";
 const HomeWrap = styled.section`
   margin-left: 2.5%;
   margin-top: 2.5%;
-  height: 100vh;
+  max-height: 100vh;
   overflow-y: scroll;
   width: 82.5%;
   display: flex;
