@@ -1,9 +1,8 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { Box } from "grommet";
 import Shows from "../../../ShowsData";
 
-const FeaturingWrap = styled(Box)`
+const FeaturingWrap = styled.div`
   margin-top: 1.5vh;
   text-align: center;
 `;
