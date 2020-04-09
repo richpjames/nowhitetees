@@ -8601,10 +8601,10 @@ react-scripts@3.3.1:
   optionalDependencies:
     fsevents "2.1.2"
 
-react-use-audio-player@^0.0.13:
-  version "0.0.13"
-  resolved "https://registry.yarnpkg.com/react-use-audio-player/-/react-use-audio-player-0.0.13.tgz#902193cc742c3d6c168185ca49539b5e18a0908a"
-  integrity sha512-n5XsxJezbhMkDnjPMR7KBPprRpvZuSxYsQb7rIwmXggDxmNbROgSLUH4SC6OeWGJKIjHfCGkDA9pL5hrDuvJPg==
+react-use-audio-player@^0.0.15:
+  version "0.0.15"
+  resolved "https://registry.yarnpkg.com/react-use-audio-player/-/react-use-audio-player-0.0.15.tgz#2eba708a04c8edb19b6df79ba0c713f79c8717e2"
+  integrity sha512-z1wf2eJ2MTkiBmyb3HWowa2YkETau6WGHmlM9LgSN+WVJvEgI+tZ+NMq9Zrm3iWQf/W+Xy1eyVsrZ+v//vpxNg==
   dependencies:
     howler "^2.1.2"
 
