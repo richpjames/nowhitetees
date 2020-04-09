@@ -5,7 +5,7 @@ export const nowPlayingHeight = 10;
 export const buttonsHeight = 10;
 export const secondSectionHeight = height - (nowPlayingHeight + buttonsHeight);
 export const volumeHeight = 15;
-export const tracklistHeight = secondSectionHeight;
+export const tracklistHeight = 100 - volumeHeight;
 
 export const width = 100;
 export const progressWidth = 33.3;
