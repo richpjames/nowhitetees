@@ -39,7 +39,7 @@ const Tracklist = (props: IProps) => {
     </Track>
   ));
   return (
-    <Container height={tracklistHeight} width={volTracklistWidth}>
+    <Container height={tracklistHeight} width={100}>
       <PageTitle>Tracklist:</PageTitle>
       <TracklistWrap> {tracklistElems}</TracklistWrap>
     </Container>
