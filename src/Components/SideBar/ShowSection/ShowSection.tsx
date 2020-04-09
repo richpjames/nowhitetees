@@ -9,7 +9,7 @@ import PlaybackButtons from "./PlaybackButtons";
 import ProgressIndicator from "./ProgressIndicator";
 import Show from "../../../Models/Show";
 import Shows from "../../../ShowsData";
-import Tracklist from "./Tracklist";
+import VolTracklistContainer from "./VolTracklistContainer";
 
 const SectionContainer = styled(SideBarContainer)`
   align-content: flex-start;
@@ -30,7 +30,7 @@ const ShowSection = () => {
         <NowPlaying showTitle={showTitle} />
         <PlaybackButtons file={showUrl} />
         <ProgressIndicator />
-        <Tracklist tracklist={tracklist} />
+        {/* <VolTracklistContainer tracklist={tracklist}/> */}
       </SectionContainer>
     </AudioPlayerProvider>
   );
