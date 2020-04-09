@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import styled from "styled-components/macro";
-import { Image as GrommetImage } from "grommet";
 import { Machine } from "xstate";
 import { useMachine } from "@xstate/react";
 import defaultFallbackPath from "../assets/DefaultFallbackPath";
@@ -19,27 +18,21 @@ const imageMachine = Machine({
 interface ImageWrapProps {
   minHeight?: string;
   minWidth?: string;
-  height?: string;
+  height: string;
   width?: string;
   maxWidth?: string;
   maxHeight?: string;
   borderRadius?: string;
 }
 
-interface ImageProps extends ImageWrapProps {
-  src: string;
-  alt: string;
-  fallback: object;
-}
-
-const ImageWrap = styled(GrommetImage)<ImageWrapProps>`
+const ImageWrap = styled.img<ImageWrapProps>`
   height: ${props => props.height || null};
   min-height: ${props => props.minHeight || null};
   width: ${props => props.width || null};
   max-width: ${props => props.maxWidth || null};
   max-height: ${props => props.maxHeight || null};
-
   border-radius: ${props => props.borderRadius || null};
+  object-fit: cover;
 `;
 const Wrapper = styled.div`
   position: relative;
@@ -55,7 +48,7 @@ interface Props {
   maxWidth?: string;
   borderRadius?: string;
   width?: string;
-  height?: string;
+  height: string;
   children?: object;
 }
 
@@ -83,29 +76,26 @@ export const Image: React.FC<Props> = ({
   };
 
   width = ifNullSetValue(width, "auto");
-  height = ifNullSetValue(height, "auto");
 
   return current.matches("loaded") ? (
-    <Wrapper>
-      {children}
-      <ImageWrap
-        src={src}
-        alt={alt}
-        onError={() => onError(src)}
-        height={height}
-        minHeight={minHeight}
-        maxHeight={maxHeight}
-        width={width}
-        minWidth={minWidth}
-        maxWidth={maxWidth}
-        borderRadius={borderRadius}
-        className="ImageWrap"
-      />
-    </Wrapper>
+    <ImageWrap
+      alt={alt}
+      borderRadius={borderRadius}
+      height={height}
+      maxHeight={maxHeight}
+      maxWidth={maxWidth}
+      minHeight={minHeight}
+      minWidth={minWidth}
+      onError={() => onError(src)}
+      src={src}
+      width={width}
+    />
   ) : (
     <Wrapper>
-      {children}
-      <ImageWrap src={fallback ? fallback : defaultFallbackPath} />
+      <ImageWrap
+        src={fallback ? fallback : defaultFallbackPath}
+        height="200px"
+      />
     </Wrapper>
   );
 };
