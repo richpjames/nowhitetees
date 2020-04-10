@@ -30,7 +30,7 @@ const ShowSection = () => {
         <NowPlaying showTitle={showTitle} />
         <PlaybackButtons file={showUrl} />
         <ProgressIndicator />
-        {/* <VolTracklistContainer tracklist={tracklist}/> */}
+        <VolTracklistContainer tracklist={tracklist} />
       </SectionContainer>
     </AudioPlayerProvider>
   );
