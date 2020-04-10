@@ -6,15 +6,13 @@ import { VolumeMute, Volume as VolumeIcon } from "grommet-icons";
 import { buttonColour, Button } from "../../../GlobalDefinitions";
 import { SideBarContainer } from "./SideBarDefinitions";
 
-const Container = styled(SideBarContainer)``;
-
-const ControlRow = styled.div`
+const Container = styled(SideBarContainer)`
   display: flex;
   align-items: center;
 `;
 
 const VolumeSlider = styled.input`
-  width: 80%;
+  width: 70%;
 `;
 
 const Volume = () => {
@@ -40,16 +38,22 @@ const Volume = () => {
 
   return (
     <Container height={15} width={100}>
-      <ControlRow>
-        <Button onClick={() => setMute()}>{muteButton(isMuted)}</Button>
-        <VolumeSlider
-          type="range"
-          min={0}
-          max={1}
-          id="volume"
-          onChange={({ target }) => volume(+target.value)}
-        />
-      </ControlRow>
+      <label htmlFor="mute" className="visuallyHidden">
+        Mute
+      </label>
+      <Button id="mute" onClick={() => setMute()}>
+        {muteButton(isMuted)}
+      </Button>
+      <label htmlFor="volume" className="visuallyHidden">
+        Volume
+      </label>
+      <VolumeSlider
+        type="range"
+        min={0}
+        max={1}
+        id="volume"
+        onChange={({ target }) => volume(+target.value)}
+      />
     </Container>
   );
 };
