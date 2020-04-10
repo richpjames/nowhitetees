@@ -1,11 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import {
-  SideBarContainer,
-  tracklistHeight,
-  volTracklistWidth
-} from "./SideBarDefinitions";
+import { SideBarContainer, tracklistHeight } from "./SideBarDefinitions";
 
 const Container = styled(SideBarContainer)`
   align-items: flex-start;
