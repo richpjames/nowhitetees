@@ -26,7 +26,7 @@ interface IProps {
 
 declare type BackOrForth = "back" | "forth";
 
-const urlPrefix = `https://storage.googleapis.com/files.nowhitetees.co.uk/recordings/`;
+const urlPrefix = `https://nowhitetees.co.uk/recordings/`;
 
 const PlaybackButtons: React.FC<IProps> = ({ file }) => {
   const { playing, seek, stop, togglePlayPause } = useAudioPlayer({
@@ -34,7 +34,7 @@ const PlaybackButtons: React.FC<IProps> = ({ file }) => {
     format: "mp3"
   });
   const { position } = useAudioPosition();
-  console.log(`${urlPrefix}${file}`);
+
   const seek10Secs = (direction: BackOrForth) => {
     if (direction === "forth") {
       seek(position + 10);
