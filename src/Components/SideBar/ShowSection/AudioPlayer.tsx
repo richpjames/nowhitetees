@@ -28,7 +28,7 @@ declare type BackOrForth = "back" | "forth";
 
 const urlPrefix = `https://nowhitetees.co.uk/recordings/`;
 
-const PlaybackButtons: React.FC<IProps> = ({ file }) => {
+const AudioPlayer: React.FC<IProps> = ({ file }) => {
   const { playing, seek, stop, togglePlayPause } = useAudioPlayer({
     src: `${urlPrefix}${file}`,
     format: "mp3"
@@ -76,4 +76,4 @@ const PlaybackButtons: React.FC<IProps> = ({ file }) => {
   );
 };
 
-export default PlaybackButtons;
+export default AudioPlayer;
