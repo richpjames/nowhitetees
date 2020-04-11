@@ -12,7 +12,7 @@ const ImageWrap = styled.div`
   height: 100%;
   padding: 0;
 `;
-const baseImgUrl = `http://files.nowhitetees.co.uk/homepage-thumbs/`;
+const baseImgUrl = `https://files.nowhitetees.co.uk/homepage-thumbs/`;
 
 const ShowReelImage: React.FC<Props> = (props: Props) => {
   const { path, onClick } = props;
