@@ -28,10 +28,20 @@ class Shows {
     return this._shows;
   }
 
-  getShowById = (id: string) =>
+  public getMostRecentShowDate = () => {
+    this._sortByDate();
+    if (this._shows[0] && this._shows[0].date) return this._shows[0].date;
+    else return new Date();
+  };
+
+  private _sortByDate = () => {
+    this._shows.sort((a: Show, b: Show) => b.date.getTime() - a.date.getTime());
+  };
+
+  public getShowById = (id: string) =>
     this._shows[this._shows.findIndex(show => show.id === id)];
 
-  getShowByDate = (date: Date) => {
+  public getShowByDate = (date: Date) => {
     if (this._needsRefresh) {
       this.get();
     }
