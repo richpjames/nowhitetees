@@ -1,11 +1,13 @@
 import React from "react";
 import styled from "styled-components/macro";
-import { useAudioPosition, useAudioPlayer } from "react-use-audio-player";
+import { useAudioPosition } from "react-use-audio-player";
+
 import {
   secondSectionHeight,
   progressWidth,
   SideBarContainer
 } from "./SideBarDefinitions";
+import formatTimeFromSeconds from "../../../Utils/formatTimeFromSeconds";
 
 const Container = styled(SideBarContainer)`
   align-items: center;
@@ -42,8 +44,7 @@ const TimeBox = styled.div`
 `;
 
 const ProgressIndicator = () => {
-  const { position, duration } = useAudioPosition();
-  const { seek } = useAudioPlayer();
+  const { position, duration, seek } = useAudioPosition();
   const [percent, setPercent] = React.useState(0);
 
   React.useEffect(() => {
@@ -70,7 +71,7 @@ const ProgressIndicator = () => {
 
   return (
     <Container height={secondSectionHeight} width={progressWidth}>
-      <TimeBox>00:00</TimeBox>
+      <TimeBox>{formatTimeFromSeconds(position)}</TimeBox>
       <ProgressBar>{seconds}</ProgressBar>
       <TimeBox>
         {duration > 0 ? `${Math.floor(duration / 60)}:00` : `00:00`}
