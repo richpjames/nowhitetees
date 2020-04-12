@@ -16,16 +16,18 @@ const VolumeSlider = styled.input`
 `;
 
 const Volume = () => {
-  const { volume, mute } = useAudioPlayer();
+  const { volume } = useAudioPlayer();
   const [isMuted, setMuted] = React.useState(false);
 
   const setMute = () => {
+    let prevVol = 0.5;
     if (!isMuted) {
       setMuted(true);
-      mute();
+      prevVol = volume();
+      volume(0);
     } else {
       setMuted(false);
-      mute();
+      volume(prevVol);
     }
   };
 
@@ -35,6 +37,16 @@ const Volume = () => {
     ) : (
       <VolumeIcon color={buttonColour} />
     );
+
+  const handleChange = React.useCallback(
+    (slider: React.ChangeEvent<HTMLInputElement>) => {
+      const volValue = parseFloat(
+        (Number(slider.target.value) / 100).toFixed(2)
+      );
+      return volume(volValue);
+    },
+    [volume]
+  );
 
   return (
     <Container height={15} width={100}>
@@ -50,9 +62,9 @@ const Volume = () => {
       <VolumeSlider
         type="range"
         min={0}
-        max={1}
+        max={100}
         id="volume"
-        onChange={({ target }) => volume(+target.value)}
+        onChange={handleChange}
       />
     </Container>
   );
