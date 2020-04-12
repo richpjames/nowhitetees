@@ -2,9 +2,10 @@ import React from "react";
 import styled from "styled-components/macro";
 
 import "./App.css";
-import SideBar from "./Components/SideBar/SideBar";
-import ShowReelContainer from "./Components/ShowReelContainer";
 import { AppContext } from "./AppContext";
+import ShowReelContainer from "./Components/ShowReelContainer";
+import Shows from "./ShowsData";
+import SideBar from "./Components/SideBar/SideBar";
 
 const AppWrap = styled.div`
   display: flex;
@@ -13,6 +14,10 @@ const AppWrap = styled.div`
 
 function App() {
   const [sidebarShowDate, setSidebarShowDate] = React.useState(new Date());
+  Shows.get();
+
+  React.useEffect(() => setSidebarShowDate(Shows.getMostRecentShowDate()), []);
+
   return (
     <AppWrap className="AppWrap">
       <AppContext.Provider
