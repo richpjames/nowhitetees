@@ -27,7 +27,7 @@ const ShowSection = () => {
 
   return (
     <AudioPlayerProvider>
-      <SectionContainer height={70} width={100}>
+      <SectionContainer height={62.5} width={100}>
         <NowPlaying showTitle={showTitle} />
         <AudioPlayer file={showUrl} />
         <PlaybackButtons />
