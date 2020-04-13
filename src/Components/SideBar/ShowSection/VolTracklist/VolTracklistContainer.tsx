@@ -3,7 +3,10 @@ import styled from "styled-components/macro";
 
 import Volume from "./Volume";
 import Tracklist from "./Tracklist";
-import { volTracklistWidth, secondSectionHeight } from "./SideBarDefinitions";
+import {
+  volTracklistWidth,
+  secondSectionHeight
+} from "../../SidebarDefinitions";
 
 const Wrapper = styled.div`
   width: ${volTracklistWidth}%;

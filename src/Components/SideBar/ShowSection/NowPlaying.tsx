@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import { nowPlayingHeight, SideBarContainer } from "./SideBarDefinitions";
+import { nowPlayingHeight, SideBarContainer } from "../SidebarDefinitions";
 
 const NowPlayingContainer = styled(SideBarContainer)`
   align-items: center;

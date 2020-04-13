@@ -2,14 +2,14 @@ import React from "react";
 import styled from "styled-components/macro";
 import { AudioPlayerProvider } from "react-use-audio-player";
 
-import { SideBarContainer } from "./SideBarDefinitions";
+import { SideBarContainer } from "../SidebarDefinitions";
 import { AppContext } from "../../../AppContext";
 import NowPlaying from "./NowPlaying";
 import AudioPlayer from "./AudioPlayer";
 import ProgressIndicator from "./ProgressIndicator";
 import Show from "../../../Models/Show";
 import Shows from "../../../ShowsData";
-import VolTracklistContainer from "./VolTracklistContainer";
+import VolTracklistContainer from "./VolTracklist/VolTracklistContainer";
 import PlaybackButtons from "./PlaybackButtons";
 
 const SectionContainer = styled(SideBarContainer)`

@@ -9,7 +9,7 @@ import {
   BackTen
 } from "grommet-icons";
 
-import { buttonsHeight, SideBarContainer } from "./SideBarDefinitions";
+import { buttonsHeight, SideBarContainer } from "../SidebarDefinitions";
 import { buttonColour, Button } from "../../../GlobalDefinitions";
 
 const Container = styled(SideBarContainer)`

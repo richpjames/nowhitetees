@@ -3,8 +3,8 @@ import styled from "styled-components/macro";
 import { useAudioPlayer } from "react-use-audio-player";
 import { VolumeMute, Volume as VolumeIcon } from "grommet-icons";
 
-import { buttonColour, Button } from "../../../GlobalDefinitions";
-import { SideBarContainer } from "./SideBarDefinitions";
+import { buttonColour, Button } from "../../../../GlobalDefinitions";
+import { SideBarContainer } from "../../SidebarDefinitions";
 
 const Container = styled(SideBarContainer)`
   display: flex;

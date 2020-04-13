@@ -6,7 +6,7 @@ import {
   secondSectionHeight,
   progressWidth,
   SideBarContainer
-} from "./SideBarDefinitions";
+} from "../SidebarDefinitions";
 import formatTimeFromSeconds from "../../../Utils/formatTimeFromSeconds";
 
 const Container = styled(SideBarContainer)`
