@@ -2,9 +2,7 @@ import React from "react";
 import styled from "styled-components/macro";
 import logo from "../assets/text_logo.svg";
 
-const LogoWrap = styled.div``;
-
-const LogoSVG = styled.img`
+const LogoSVG = styled.img<{ height: string; width: string }>`
   height: ${props => props.height || null};
   width: ${props => props.width || null};
 `;
@@ -18,15 +16,13 @@ interface IProps {
 const LogoCentered: React.FC<IProps> = props => {
   const { height, width } = props;
   return (
-    <LogoWrap className="LogoWrap">
-      <LogoSVG
-        className="LogoSVG"
-        src={logo}
-        alt="logo"
-        height={height}
-        width={width}
-      />
-    </LogoWrap>
+    <LogoSVG
+      className="LogoSVG"
+      src={logo}
+      alt="logo"
+      height={height}
+      width={width}
+    />
   );
 };
 
