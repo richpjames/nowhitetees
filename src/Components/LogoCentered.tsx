@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components/macro";
-import logo from "../assets/text_large.svg";
+import logo from "../assets/text_logo.svg";
 
 const LogoWrap = styled.div``;
 
