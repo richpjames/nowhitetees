@@ -6,6 +6,19 @@ import { VolumeMute, Volume as VolumeIcon } from "grommet-icons";
 import { buttonColour, Button } from "../../../../GlobalDefinitions";
 import { SideBarContainer } from "../../SidebarDefinitions";
 
+const sliderTrackWidth = "85%";
+const sliderTrackHeight = "8.4px";
+const boxShadow = null;
+const sliderTrackBackgroundColour = "#000000";
+const sliderTrackBorderRadius = "1.3px";
+const sliderTrackBorder = "0.2px solid #010101";
+
+const thumbBorder = "1px solid #000000";
+const thumbHeight = "15px";
+const thumbWidth = "8px";
+const thumbBorderRadius = "3px";
+const thumbBackground = "#ffffff";
+
 const Container = styled(SideBarContainer)`
   display: flex;
   align-items: center;
@@ -19,17 +32,16 @@ const VolumeSlider = styled.input`
     outline: none;
   }
   &::-webkit-slider-runnable-track {
-    width: 100%;
-    height: 8.4px;
+    width: ${sliderTrackWidth};
+    height: ${sliderTrackHeight};
     cursor: pointer;
-    animate: 0.2s;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    background: #3071a9;
-    border-radius: 1.3px;
-    border: 0.2px solid #010101;
+    box-shadow: ${boxShadow};
+    background: ${sliderTrackBackgroundColour};
+    border-radius: ${sliderTrackBorderRadius};
+    border: ${sliderTrackBorder};
   }
   &::-webkit-slider-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    box-shadow: ${boxShadow};
     border: 1px solid #000000;
     height: 36px;
     width: 16px;
@@ -44,31 +56,30 @@ const VolumeSlider = styled.input`
   }
 
   &::-moz-range-track {
-    width: 100%;
-    height: 8.4px;
+    width: ${sliderTrackWidth};
+    height: ${sliderTrackHeight};
     cursor: pointer;
     animate: 0.2s;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    background: #3071a9;
-    border-radius: 1.3px;
-    border: 0.2px solid #010101;
+    box-shadow: ${boxShadow};
+    background: ${sliderTrackBackgroundColour};
+    border-radius: ${sliderTrackBorderRadius};
+    border: ${sliderTrackBorder};
   }
 
   &::-moz-range-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    border: 1px solid #000000;
-    height: 36px;
-    width: 16px;
-    border-radius: 3px;
-    background: #ffffff;
+    box-shadow: ${boxShadow};
+    border: ${thumbBorder};
+    height: ${thumbHeight};
+    width: ${thumbWidth};
+    border-radius: ${thumbBorderRadius};
+    background: ${thumbBackground};
     cursor: pointer;
   }
 
   &::-ms-track {
-    width: 100%;
-    height: 8.4px;
+    width: ${sliderTrackWidth};
+    height: ${sliderTrackHeight};
     cursor: pointer;
-    animate: 0.2s;
     background: transparent;
     border-color: transparent;
     border-width: 16px 0;
@@ -77,30 +88,30 @@ const VolumeSlider = styled.input`
 
   &::-ms-fill-lower {
     background: #2a6495;
-    border: 0.2px solid #010101;
-    border-radius: 2.6px;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    border: ${sliderTrackBorder};
+    border-radius: calc(${sliderTrackBorderRadius} * 2);
+    box-shadow: ${boxShadow};
   }
 
   &::-ms-fill-upper {
-    background: #3071a9;
-    border: 0.2px solid #010101;
-    border-radius: 2.6px;
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
+    background: ${sliderTrackBackgroundColour};
+    border: ${sliderTrackBorder};
+    border-radius: calc(${sliderTrackBorderRadius} * 2);
+    box-shadow: ${boxShadow};
   }
 
   &::-ms-thumb {
-    box-shadow: 1px 1px 1px #000000, 0px 0px 1px #0d0d0d;
-    border: 1px solid #000000;
-    height: 36px;
-    width: 16px;
-    border-radius: 3px;
-    background: #ffffff;
+    box-shadow: ${boxShadow};
+    border: ${thumbBorder};
+    height: ${thumbHeight};
+    width: ${thumbWidth};
+    border-radius: ${thumbBorderRadius};
+    background: #${thumbBackground};
     cursor: pointer;
   }
 
   &:focus::-ms-fill-lower {
-    background: #3071a9;
+    background: ${sliderTrackBackgroundColour};
   }
 
   &:focus::-ms-fill-upper {
