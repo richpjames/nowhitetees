@@ -32,11 +32,16 @@ const Second = styled.div<{ currentPercentile: boolean }>`
   background-color: #000000;
   ${({ currentPercentile }) =>
     currentPercentile &&
-    `background-color: #9B9B9B;
-     width: 100%;
-     height: 1.5%;
+    `  
+    border: 1px solid #000000;
+    height: 8px;
+    width: 15px;
+    border-radius: 3px;
+    background: #ffffff;
+    cursor: pointer;
      `}
 `;
+
 const TimeBox = styled.div`
   height: 5%;
   padding-bottom: 5%;
