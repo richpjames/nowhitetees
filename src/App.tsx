@@ -3,7 +3,7 @@ import styled from "styled-components/macro";
 
 import "./App.css";
 import { AppContext } from "./AppContext";
-import ShowReelContainer from "./Components/ShowReelContainer";
+import ShowReelContainer from "./Components/ShowReel/ShowReelContainer";
 import Shows from "./ShowsData";
 import SideBar from "./Components/SideBar/SideBar";
 
