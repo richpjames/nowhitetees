@@ -2,15 +2,15 @@ import React from "react";
 import styled from "styled-components/macro";
 
 import LogoCentered from "../LogoCentered";
-import LinksSection from "./LinksSection";
 import ShowSection from "./ShowSection/ShowSection";
+import LinksSection from "./LinksSection";
 import { AppContext } from "../../AppContext";
 
-const Nav = styled.section`
+const SidebarContainer = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 25%;
+  width: 20%;
   height: 100%;
   @media only screen and (max-width: 500px) {
     margin-top: 5vh;
@@ -18,7 +18,7 @@ const Nav = styled.section`
 `;
 
 const LogoWrap = styled.div`
-  height: 22.5%;
+  height: 30%;
 `;
 const Blanker = styled.div`
   display: flex;
@@ -33,9 +33,9 @@ interface IProps {}
 const SideBar: React.FC<IProps> = (props: IProps) => {
   const { sidebarShowDate: showDate } = React.useContext(AppContext);
   return (
-    <Nav>
+    <SidebarContainer>
       <LogoWrap>
-        <LogoCentered height="150px" width="150px" className="Logo" />
+        <LogoCentered height="100%" width="100%" className="Logo" />
       </LogoWrap>
       <LinksSection />
       {showDate ? (
@@ -45,7 +45,7 @@ const SideBar: React.FC<IProps> = (props: IProps) => {
           <h5>Select a show...</h5>
         </Blanker>
       )}
-    </Nav>
+    </SidebarContainer>
   );
 };
 
