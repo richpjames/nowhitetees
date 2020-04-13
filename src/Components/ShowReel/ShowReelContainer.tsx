@@ -1,9 +1,9 @@
 import React from "react";
 import styled from "styled-components/macro";
 
-import Show from "../Models/Show";
-import ShowReel from "./ShowReel/ShowReel";
-import Shows from "../ShowsData";
+import Show from "../../Models/Show";
+import ShowReel from "./ShowReel";
+import Shows from "../../ShowsData";
 
 const HomeWrap = styled.section`
   margin-left: 2.5%;
