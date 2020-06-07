@@ -44,6 +44,7 @@ const ShowReel: React.FC<IProps> = (props: IProps) => {
     }
     return (
       <div key={i}>
+        {i === 0 && <YearTitle>{getYear(Date.now())}</YearTitle>}
         <ShowCard
           onClick={setExpandedShow}
           className="ShowCard"
