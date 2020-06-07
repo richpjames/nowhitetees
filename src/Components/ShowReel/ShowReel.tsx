@@ -43,7 +43,7 @@ const ShowReel: React.FC<IProps> = (props: IProps) => {
       evenSelected = i % 2 === 0 ? true : false;
     }
     return (
-      <>
+      <div key={i}>
         <ShowCard
           onClick={setExpandedShow}
           className="ShowCard"
@@ -59,11 +59,9 @@ const ShowReel: React.FC<IProps> = (props: IProps) => {
         />
         {shows[i + 1] &&
           differenceInCalendarYears(shows[i + 1].date, date) === -1 && (
-            <>
-              <YearTitle>20{getYear(shows[i + 1].date)}</YearTitle>
-            </>
+            <YearTitle>20{getYear(shows[i + 1].date)}</YearTitle>
           )}
-      </>
+      </div>
     );
   });
 
