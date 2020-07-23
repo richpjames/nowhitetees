@@ -36,7 +36,7 @@ const ShowCardWrap = styled.div<{
   ${({ selected, width }) =>
     selected &&
     `
-      width: calc((${width}% * 2) - (${horizontalMargin}px ));
+      width: calc((${width}% * 2) - (${horizontalMargin}px );
       margin-right: 0;
     `}
 `;
